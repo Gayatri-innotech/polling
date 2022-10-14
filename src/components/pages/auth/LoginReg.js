@@ -1,5 +1,6 @@
-import { Grid, Card, Typography, Tabs, Tab, Box } from "@mui/material";
+import { Grid, Card, Tabs, Tab, Box } from "@mui/material";
 import { useState } from "react";
+import Registration from "./Registration";
 import UserLogin from "./UserLogin";
 
 const TabPanel = (props) => {
@@ -34,7 +35,9 @@ const LoginReg = () => {
                         <TabPanel value={value} index={0}>
                             <UserLogin />
                         </TabPanel>
-                        <TabPanel value={value} index={1}>Registration</TabPanel>
+                        <TabPanel value={value} index={1}>
+                            <Registration/>
+                        </TabPanel>
                     </Box>
                 </Card>
             </Grid>
