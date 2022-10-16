@@ -1,0 +1,39 @@
+
+.app {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.app .mail {
+    width: 20%;
+    height: 35px;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.app .pwd {
+    width: 20%;
+    height: 35px;
+    margin-top: 5px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.app .btn {
+    width: 10%;
+    height: 30px;
+    margin-top: 5px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    background-color: lightblue;
+    cursor: pointer;
+}
+
+.app .btn:hover {
+    background-color: lightpink;
+}

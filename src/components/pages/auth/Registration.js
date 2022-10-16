@@ -24,7 +24,8 @@ const Registration = () => {
             console.log(actualData);
         document.getElementById('registration-form').reset()
         setError({status: true, msg:"Registration Success", type:'success'})
-        navigate('/')
+        navigate('/Dashboard')
+        // setError({status: true, msg:"Next row", type:'Post success'})
         }
         else{
             setError({status: true, msg:"Passwords does not match", type:'error'})
@@ -32,6 +33,7 @@ const Registration = () => {
     } else {
         setError({status: true, msg:"All Fields are Required", type:'error'})
     }
+    
 }
     return <>
     <Box component='form' noValidate sx={{ mt: 1 }} id='registration-form' onSubmit={handleSubmit}>
