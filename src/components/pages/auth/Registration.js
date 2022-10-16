@@ -24,7 +24,7 @@ const Registration = () => {
             console.log(actualData);
         document.getElementById('registration-form').reset()
         setError({status: true, msg:"Registration Success", type:'success'})
-        navigate('/Dashboard')
+        navigate('/login')
         // setError({status: true, msg:"Next row", type:'Post success'})
         }
         else{

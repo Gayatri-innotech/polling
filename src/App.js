@@ -6,6 +6,7 @@ import Polls from './components/pages/auth/Polls';
 import Dashboard from './components/pages/Dashboard';
 import Home from './components/pages/Home';
 import Layout from './components/pages/Layout';
+import Result from './components/pages/Results';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path='/' element={<Layout />}>
             <Route index element={<Home />} />
             <Route path= "login" element={<LoginReg />} />
+            <Route path='result' element={<Result />} />
             <Route path = "dashboard" element={<Dashboard/>}/>
             <Route path = "polls" element={<Polls/>}/>
           </Route>

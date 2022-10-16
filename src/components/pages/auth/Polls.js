@@ -1,6 +1,8 @@
 import { Button, Card, Divider, Image, Placeholder, Header, Icon, Modal } from 'semantic-ui-react'
 import _ from 'lodash'
+import axios from 'axios'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const cards = [
   {
@@ -25,6 +27,7 @@ const Polls = () => {
   const [voteForB, setVoteForB] = useState(0);
   const [voted, setVoted] = useState(false);
   const [open, setOpen] = useState(false);
+  const [openVoted, setOpenVoted] = useState(false);
 
   // const handleLoadingClick = () => {
   //   setLoading(true);
@@ -33,6 +36,22 @@ const Polls = () => {
   //     setLoading(false);
   //   }, 3000)
   // }
+
+  
+  const submitVote = () => {
+    axios.post(`https://634bf56ad90b984a1e42e64b.mockapi.io/vote`, {
+      partyA: voteForA,
+      partyB: voteForB,
+    })
+    .then(
+      (response)=>{
+        console.log(response);
+      },
+      (error)=>{
+        console.log(error);
+      }
+    );
+    };
 
   return <>
     {voteForA} - {voteForB}
@@ -107,20 +126,47 @@ const Polls = () => {
 
         <Header icon>
           <Icon name='archive'/>
-          Archive
+          You are about to vote for this party.
         </Header>
         <Modal.Content>
           <p>
-            hello
+            Are you sure about voting this?
           </p>
         </Modal.Content>
         <Modal.Actions>
-          <Button basic color='red' inverted onClick={() => setOpen(false)}>
+          <Button basic color='red' inverted onClick={() => [setOpen(false), window.location.reload()]}>
             <Icon name='remove'/>No
           </Button>
-          <Button basic color='green' inverted onClick={() => setOpen(false)}>
+          
+          <Button basic color='green' inverted onClick={() => [setOpen(false), submitVote(), setOpenVoted(true)]} >
             <Icon name='checkmark'/>Yes
           </Button>
+          
+        </Modal.Actions>
+      </Modal>
+      <Modal
+      basic
+      onClose={() => setOpenVoted(false)}
+      onOpen={()=> setOpenVoted(true)}
+      open={openVoted}
+      size='small'>
+
+        <Header icon>
+          <Icon name='archive'/>
+          You have voted!
+        </Header>
+        <Modal.Content>
+         <h4>Thanks! Want to see the results now?</h4>
+        </Modal.Content>
+        <Modal.Actions>
+          <Button basic color='red' inverted onClick={() => [setOpenVoted(false), setOpen(false)]}>
+            <Icon name='remove'/>No
+          </Button>
+          <Link to='/result'>
+          <Button basic color='green' inverted onClick={() => [setOpenVoted(false), setOpen(false)]} >
+            <Icon name='checkmark'/>Yes
+          </Button>
+          </Link>
         </Modal.Actions>
       </Modal>
   </>
