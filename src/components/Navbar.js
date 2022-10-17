@@ -1,4 +1,4 @@
-import { AppBar, Box, Toolbar, Typography, Button } from '@mui/material'
+import { AppBar, Box, Toolbar, Typography, Button, MenuItem, Select, InputLabel, FormControl } from '@mui/material'
 import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
@@ -12,9 +12,11 @@ const Navbar = () => {
                     <Button component={NavLink} to='/' style={({ isActive }) => { return { backgroungColor: isActive ? '#6d1b7b' : '' } }} sx={{ color: 'white', textTransform: 'none' }}>
                         Home
                     </Button>
-                    <Button component={NavLink} to='/login' style={({ isActive }) => { return { backgroungColor: isActive ? '#6d1b7b' : '' } }} sx={{ color: 'white', textTransform: 'none' }}>
-                        Login and Registration
-                    </Button>
+                        <Select>
+                            <MenuItem component={NavLink} to='/login' value={10}>Login</MenuItem>
+                            <MenuItem component={NavLink} to='/reg' value={20}>Sign Up</MenuItem>
+                        </Select>
+                    
                 </Toolbar>
             </AppBar>
         </Box>

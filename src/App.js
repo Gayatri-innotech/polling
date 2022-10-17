@@ -7,6 +7,7 @@ import Dashboard from './components/pages/Dashboard';
 import Home from './components/pages/Home';
 import Layout from './components/pages/Layout';
 import Result from './components/pages/Results';
+import Registration from './components/pages/auth/Registration';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path='result' element={<Result />} />
             <Route path = "dashboard" element={<Dashboard/>}/>
             <Route path = "polls" element={<Polls/>}/>
+            <Route path = "reg" element={<Registration/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
