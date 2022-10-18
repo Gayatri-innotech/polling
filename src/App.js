@@ -8,6 +8,9 @@ import Home from './components/pages/Home';
 import Layout from './components/pages/Layout';
 import Result from './components/pages/Results';
 import Registration from './components/pages/auth/Registration';
+import Admin from './components/pages/admin/Signin';
+import Panel from './components/pages/admin/AdminPanel';
+import Poll from './components/pages/admin/Poll';
 
 function App() {
   return (
@@ -21,6 +24,9 @@ function App() {
             <Route path = "dashboard" element={<Dashboard/>}/>
             <Route path = "polls" element={<Polls/>}/>
             <Route path = "reg" element={<Registration/>}/>
+            <Route path ="admin" element={<Admin/>}/>
+            <Route path ="panel" element={<Panel/>}/>
+            <Route path ="poll" element={<Poll/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

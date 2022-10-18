@@ -13,8 +13,8 @@ const Navbar = () => {
                         Home
                     </Button>
                         <Select>
-                            <MenuItem component={NavLink} to='/login' value={10}>Login</MenuItem>
-                            <MenuItem component={NavLink} to='/reg' value={20}>Sign Up</MenuItem>
+                            <MenuItem component={NavLink} to='/login' value={10}>User</MenuItem>
+                            <MenuItem component={NavLink} to='/admin' value={20}>Admin</MenuItem>
                         </Select>
                     
                 </Toolbar>
